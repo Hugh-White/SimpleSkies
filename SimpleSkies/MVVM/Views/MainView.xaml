@@ -3,11 +3,22 @@
     x:Class="SimpleSkies.MVVM.Views.MainView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:SimpleSkies.Converters"
     xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="MainView">
+    <ContentPage.Resources>
+        <converters:CodeToWeatherConverter x:Key="C2W" />
+        <converters:CodeToLottieConverter x:Key="C2L" />
+        <toolkit:StatusBarBehavior
+            x:Key="statusBarStyle"
+            StatusBarColor="Transparent"
+            StatusBarStyle="{AppThemeBinding Light=DarkContent,
+                                             Dark=LightContent}" />
+    </ContentPage.Resources>
     <Grid Margin="15" RowDefinitions=".08*, .1*, .5*, .1*, .3*">
         <!--  Searchbar  -->
-        <Grid>
+        <Grid Margin="0,20,0,0">
             <Frame />
             <SearchBar
                 x:Name="searchBar"
@@ -30,10 +41,13 @@
             Grid.Row="2"
             HorizontalOptions="Center"
             RepeatCount="-1"
-            Source="windy.json" />
+            Source="{Binding WeatherData.current.weather_code, Converter={StaticResource C2L}}" />
 
         <!--  Weather Details  -->
-        <Grid Grid.Row="3" ColumnDefinitions="*,*,*">
+        <Grid
+            Grid.Row="3"
+            ColumnDefinitions="*,*,*"
+            IsVisible="{Binding IsVisible}">
             <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Label Text="Temp" />
                 <Label Style="{StaticResource WeatherValue}" Text="{Binding WeatherData.current.temperature_2m, StringFormat='{0}°C'}" />
@@ -53,22 +67,16 @@
                 <Label
                     HorizontalTextAlignment="Center"
                     Style="{StaticResource WeatherValue}"
-                    Text="{Binding WeatherData.current.weather_code}"
+                    Text="{Binding WeatherData.current.weather_code, Converter={StaticResource C2W}}"
                     VerticalTextAlignment="Center" />
             </VerticalStackLayout>
         </Grid>
 
         <!--  Weekly Forecast  -->
-        <CollectionView Grid.Row="4">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>1</x:String>
-                    <x:String>2</x:String>
-                    <x:String>3</x:String>
-                    <x:String>4</x:String>
-                    <x:String>5</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
+        <CollectionView
+            Grid.Row="4"
+            IsVisible="{Binding IsVisible}"
+            ItemsSource="{Binding WeatherData.daily2}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
             </CollectionView.ItemsLayout>
@@ -79,16 +87,30 @@
                             <skia:SKLottieView
                                 HeightRequest="50"
                                 RepeatCount="-1"
-                                Source="snowy.json"
+                                Source="{Binding weather_code, Converter={StaticResource C2L}}"
                                 WidthRequest="50" />
-                            <Label Text="12-12-2121" TextColor="#FFD700" />
-                            <Label Text="50°C" />
-                            <Label Text="Sunny" />
+                            <Label Text="{Binding time, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="#FFD700" />
+                            <Label Text="{Binding temperature_2m_max, StringFormat='{0}°C'}" />
+                            <Label
+                                Padding="5,0,5,0"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding weather_code, Converter={StaticResource C2W}}" />
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <!--  Loading Spinner Overlay  -->
+        <Grid
+            Grid.RowSpan="5"
+            Margin="-15"
+            BackgroundColor="Black"
+            IsVisible="{Binding IsLoading}"
+            Opacity=".7">
+            <ActivityIndicator IsRunning="True" VerticalOptions="Center" />
+        </Grid>
 
 
     </Grid>

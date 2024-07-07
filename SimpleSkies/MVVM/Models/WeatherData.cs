@@ -1,6 +1,7 @@
 ﻿using PropertyChanged;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,10 @@ namespace SimpleSkies.MVVM.Models
         public Current current { get; set; }
         public Daily_Units daily_units { get; set; }
         public Daily daily { get; set; }
+        public ObservableCollection<Daily2> daily2 { get; set; } 
+            = new ObservableCollection<Daily2>();
     }
+
 
     public class Current_Units
     {
@@ -61,6 +65,13 @@ namespace SimpleSkies.MVVM.Models
         public float[] temperature_2m_min { get; set; }
     }
 
+    public class Daily2
+    {
+        public string time { get; set; }
+        public int weather_code { get; set; }
+        public float temperature_2m_max { get; set; }
+        public float temperature_2m_min { get; set; }
+    }
 
 
 }
