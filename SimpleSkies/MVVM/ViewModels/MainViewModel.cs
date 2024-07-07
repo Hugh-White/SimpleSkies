@@ -1,5 +1,4 @@
-﻿using Android.Text;
-using CommunityToolkit.Maui.Alerts;
+﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using Microsoft.Maui.Devices.Sensors;
 using PropertyChanged;

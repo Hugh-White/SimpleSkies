@@ -40,10 +40,8 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -66,6 +64,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\appicon.png" />
 	  <None Remove="Resources\Fonts\Lato-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Lato-Light.ttf" />
 	  <None Remove="Resources\Fonts\Lato-Regular.ttf" />
@@ -78,10 +77,19 @@
 	  <None Remove="Resources\raw\sunny.json" />
 	  <None Remove="Resources\raw\thunder.json" />
 	  <None Remove="Resources\raw\windy.json" />
+	  <None Remove="Resources\Splash\splash.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
+	  <MauiIcon Include="Resources\AppIcon\appicon.png" Color="#76C8FF" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#76C8FF" />
+	</ItemGroup>
+
+	<ItemGroup>
+ 	<PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
