@@ -77,12 +77,13 @@
             Grid.Row="4"
             IsVisible="{Binding IsVisible}"
             ItemsSource="{Binding WeatherData.daily2}">
+
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Style="{StaticResource WeatherCard}">
+                    <Frame Margin="0,0,0,40" Style="{StaticResource WeatherCard}">
                         <VerticalStackLayout Spacing="2" VerticalOptions="Center">
                             <skia:SKLottieView
                                 HeightRequest="50"

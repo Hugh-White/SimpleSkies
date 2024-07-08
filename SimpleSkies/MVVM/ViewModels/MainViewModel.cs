@@ -19,6 +19,7 @@ namespace SimpleSkies.MVVM.ViewModels
         #region Private Fields
         private HttpClient client;
         #endregion
+
         #region Properties
         //Object of model to hold return data from API
         public WeatherData WeatherData { get; set; }
