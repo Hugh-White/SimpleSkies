@@ -1,4 +1,4 @@
-<h1>HSimple Skies - A Minimilast, Aesthetic, Simple Weather App</h1>
+<h1>Simple Skies - A Minimilast, Aesthetic, Simple Weather App</h1>
 
 <h2>Get it on the Google Play Store here!</h2>
 
