@@ -10,8 +10,8 @@ I built simple skies to practice consuming REST APIs in .NET MAUI.
 
 The app consists of a home screen which loads to the city the user is in, displaying the current weather for the hour, and the next 7 days of weather are displayed in a horizontal collection at the bottom of the screen.<br/><br/>
 Users can then use the search bar to search for a city or a country. If a location cant be found, a message displays to the user and the weather location is moved to Africa.<br/><br/>
-The aim of this app was to provide a weather app that displays only key information about the weather for the current day and forecast, which allows the app to provide a clean, aesthetic minimalist design, whilst<br/>
-serving its primary funtion to deliver important weather information to the user.<br/>
+The aim of this app was to provide a weather app that displays only key information about the weather for the current day and forecast, which allows the app to provide a clean, aesthetic minimalist design, whilst
+serving its primary function to deliver important weather information to the user.<br/>
 
 To get a location, the app takes the string that the user enters, and puts it through a Geocoding method that takes the parameter and measures it up against a list of locations as placemarks. If a placemark matches the entry, the method returns the name & coordinates.<br/>
 If a location doesnt have a city name, it will look for the name of the country that location is in and return that with the coordinates, otherwise, as stated before, if a location cant be found the app defaults to Africa with an error message.<br/>
