@@ -26,6 +26,7 @@ This app was a lot of fun to make, and I learned a lot through the process of wo
 - <b>C#</b> 
 - <b>XAML</b>
 - <b>.NET MAUI</b>
+- <b>Open-Meteo.com (Weather APIs)</b>
 
 <h2>Nuget Packages</h2>
 
