@@ -42,19 +42,19 @@ This app was a lot of fun to make, and I learned a lot through the process of wo
   <table>
     <tr>
       <td align="center" valign="top" width="25%">
-        <b>Home Page Light</b><br>
+        <b>Home Page Light</b><br/>
         <img src="https://i.imgur.com/17SvA0a.jpeg" alt="Home Page, Loaded Location" width="100%">
       </td>
       <td align="center" valign="top" width="25%">
-        <b>Home Page Dark</b><br>
+        <b>Home Page Dark</b><br/>
         <img src="https://i.imgur.com/3pfSgBS.jpeg" alt="Home Page Dark Mode, Loaded Location" width="100%">
       </td>
       <td align="center" valign="top" width="25%">
-        <b>Trail Guide Page</b><br>
+        <b>Trail Guide Page</b><br/>
         <img src="https://i.imgur.com/SvTbLGh.jpeg" alt="LA Search, Light" width="100%">
       </td>
       <td align="center" valign="top" width="25%">
-        <b>Plant Collection Page</b><br>
+        <b>Plant Collection Page</b><br/>
         <img src="https://i.imgur.com/9bDDxJk.jpeg" alt="NZ Search, Dark" width="100%">
       </td>
     </tr>
